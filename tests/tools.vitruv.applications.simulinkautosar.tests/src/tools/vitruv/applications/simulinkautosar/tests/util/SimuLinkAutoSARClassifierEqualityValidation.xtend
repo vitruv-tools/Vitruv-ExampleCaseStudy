@@ -59,6 +59,10 @@ class SimuLinkAutoSARClassifierEqualityValidation {
 		assertElementWithName(SubSystem, CompositeSwComponent, compositeComponentName)
 	}
 	
+	def assertCompositeSwComponentWithIdInRootModel(String compositeComponentId){
+		assertElementWithId(SubSystem, CompositeSwComponent, compositeComponentId)
+	}
+	
 	
 	
 	/*
@@ -110,6 +114,18 @@ class SimuLinkAutoSARClassifierEqualityValidation {
 			val SimulinkElement = claimSimuLinkElement(simulinkElement, name)
 			
 			val AutoSARElement = claimAutoSARElement(autoSARElement, name)
+			assertElementEquals(SimulinkElement , AutoSARElement )
+		]
+	}
+	
+	private def void assertElementWithId(
+		Class <? extends SimulinkElement> simulinkElement,
+		Class <? extends AutoSARElement> autoSARElement,
+		String id) {
+		viewExecutor.apply [
+			val SimulinkElement = claimSimuLinkElementById(simulinkElement, id)
+			
+			val AutoSARElement = claimAutoSARElementById(autoSARElement, id)
 			assertElementEquals(SimulinkElement , AutoSARElement )
 		]
 	}

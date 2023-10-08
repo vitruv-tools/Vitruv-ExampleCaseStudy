@@ -74,5 +74,15 @@ class SimuLinkToAutoSARBlockTest extends AbstractSimuLinkToAutoSARTest {
 		
 	}
 	
+	@Test
+	def void testChangeId() {
+		createSubsystemInModel(DEFAUL_SUBSYSTEM_NAME)
+		changeSimuLinkView [
+			val subSystem = claimSimuLinkBlock(DEFAUL_SUBSYSTEM_NAME)
+			subSystem.id = "newId"
+		]
+		assertCompositeSwComponentWithIdInRootModel("newId")
+	}
+	
 	
 }
