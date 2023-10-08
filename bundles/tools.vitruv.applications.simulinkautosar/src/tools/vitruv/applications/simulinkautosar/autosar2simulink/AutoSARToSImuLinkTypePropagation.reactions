@@ -144,7 +144,7 @@ reaction AutoSARElementIdChanged{
 	call changeSimulinkElementId(affectedEObject)
 }
 
-
+// changing the id of the corresponding simulinkelement
 routine changeSimulinkElementId(AutoSAR::AutoSARElement autoSARElement){
 	match {
 		val SimuLinkElement = retrieve SimuLink::SimulinkElement corresponding to autoSARElement
