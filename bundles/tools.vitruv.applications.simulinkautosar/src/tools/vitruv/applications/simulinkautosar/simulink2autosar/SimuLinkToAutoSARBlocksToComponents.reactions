@@ -21,6 +21,21 @@ routine changeAutoSARElementName(SimuLink::SimulinkElement simulinkElement){
 	}
 }
 
+reaction SimulinkElementIdChanged{
+	after attribute replaced at SimuLink::SimulinkElement[id]
+	call changeAutoSARElementId(affectedEObject)
+}
+
+
+routine changeAutoSARElementId(SimuLink::SimulinkElement simulinkElement){
+	match {
+		val AutoSARElement = retrieve AutoSAR::AutoSARElement corresponding to simulinkElement
+	}
+	update{
+		AutoSARElement.id = simulinkElement.id
+	}
+}
+
 
 reaction SimuLinkSubsystemInserted {
 	after element SimuLink::SubSystem inserted in SimuLink::SimulinkModel[contains]

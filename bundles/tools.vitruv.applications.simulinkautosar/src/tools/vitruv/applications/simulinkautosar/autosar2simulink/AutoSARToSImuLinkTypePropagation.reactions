@@ -138,3 +138,18 @@ routine changeSimulinkElementName(AutoSAR::AutoSARElement autoSARElement){
 		SimuLinkElement.name = autoSARElement.name
 	}
 }
+
+reaction AutoSARElementIdChanged{
+	after attribute replaced at AutoSAR::AutoSARElement[id]
+	call changeSimulinkElementId(affectedEObject)
+}
+
+
+routine changeSimulinkElementId(AutoSAR::AutoSARElement autoSARElement){
+	match {
+		val SimuLinkElement = retrieve SimuLink::SimulinkElement corresponding to autoSARElement
+	}
+	update{
+		SimuLinkElement.id = autoSARElement.id
+	}
+}
