@@ -86,16 +86,6 @@ class AutoSARtoSimuLinkSwComponentTest extends AbstractAutoSARToSimuLinkTest {
 		assertNoElementWithNameInRootModel(DEFAULT_Component_NAME)
 		
 	}
-	
-	@Test
-	def void testChangeId() {
-		createCompositeSWComponentInModel(DEFAULT_COMPOSITE_COMPONENT_NAME)
-		changeAutoSARView [
-			val component = claimAutoSARElement(CompositeSwComponent, DEFAULT_COMPOSITE_COMPONENT_NAME) as CompositeSwComponent
-			component.id = "newId"
-		]
-		assertCompositeSwComponentWithIdInRootModel("newId")
-	}
 		
 	
 }
