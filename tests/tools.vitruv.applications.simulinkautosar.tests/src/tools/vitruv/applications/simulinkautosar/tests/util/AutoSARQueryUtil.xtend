@@ -35,13 +35,6 @@ class AutoSARQueryUtil {
 		].claimOne
 	}
 	
-	static def <T extends AutoSARElement> SwComponent claimAutoSARElementById(View view, Class<T> element,
-		String elementId) {
-		view.getRootObjects(AutoSARModel).map[swcomponent].flatten.filter[
-		 	it.id == elementId
-		].claimOne
-	}
-	
 	static def <T extends AutoSARElement> CompositeSwComponent claimAutoSARCompositeSwComponent(View view, Class<T> element,
 		String elementName) {
 		

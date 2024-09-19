@@ -57,13 +57,6 @@ class SimuLinkQueryUtil {
 		].claimOne
 	}
 	
-	static def <T extends SimulinkElement> Block claimSimuLinkElementById(View view, Class<T> simuLinkType,
-		String elementId) {
-		getBlocksOfModel(view,elementId).filter[
-		 	it.id == elementId
-		].claimOne
-	}
-	
 	
 	static def claimSimuLinkBlockOfSubsystem(SubSystem subsystem, String blockname){
 		subsystem.subBlocks.filter[it.name == blockname].claimOne
